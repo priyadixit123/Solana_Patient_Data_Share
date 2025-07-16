@@ -25,31 +25,32 @@ Records: Patient data stored on-chain (demo purposes).
 
 # `#[program]` - Instructions
 
- rust
+
+ 
 pub fn register_hospital(ctx: Context<RegisterHospital>, name: String) -> Result<()>
 
 
 Registers a new hospital account with a given name and authority.
 
-rust
+ 
 pub fn register_patient(ctx: Context<RegisterPatient>, name: String, record: String) -> Result<()>
 
 
 Registers a new patient with their initial medical record.
 
-Rust
+
 pub fn update_record(ctx: Context<UpdateRecord>, new_record: String) -> Result<()>
 
 
 Only the patient authority can call this to update their own record.
 
-rust
+
 pub fn grant_access(ctx: Context<GrantAccess>) -> Result<()>
  
 
 Allows a patient to grant a hospital access to view their data.
 
-rust
+
 pub fn revoke_access(ctx: Context<RevokeAccess>) -> Result<()>
  
 
@@ -59,7 +60,7 @@ Removes a hospital’s access to a patient’s data by closing the access accoun
 
 # Data Structures
 
-rust
+ 
 #[account]
 pub struct Hospital {
     pub authority: Pubkey,
@@ -68,7 +69,7 @@ pub struct Hospital {
 }
 
 
-rust
+ 
 #[account]
 pub struct Patient {
     pub authority: Pubkey,
@@ -78,7 +79,7 @@ pub struct Patient {
 }
 
 
-rust
+ 
 #[account]
 pub struct Access {
     pub patient: Pubkey,
